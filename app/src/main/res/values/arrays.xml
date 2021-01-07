@@ -1,0 +1,12 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="srv_entries">
+        <item>seanet</item>
+        <item>villepinte93</item>
+    </string-array>
+
+    <string-array name="srv_values">
+        <item>https://www2.seanet.info/</item>
+        <item>http://www/villepinte93.com/cgi-bin/</item>
+    </string-array>
+</resources>
