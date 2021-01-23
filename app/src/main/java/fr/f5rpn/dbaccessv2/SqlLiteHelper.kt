@@ -5,17 +5,18 @@ import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 
 class SqlLiteHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx,
-    "essais",null,2) {
+    "essais.db",null,7) {
 
-    companion object
-    {
-        private var instance:SqlLiteHelper?=null
+    init {
+        instance = this
+    }
+
+    companion object {
+        private var instance: SqlLiteHelper? = null
 
         @Synchronized
-        fun getInstance(ctx:Context):SqlLiteHelper
-        {
-            if(instance==null)
-            {
+        fun getInstance(ctx: Context): SqlLiteHelper {
+            if (instance == null) {
                 instance = SqlLiteHelper(ctx)
             }
             return instance as SqlLiteHelper
@@ -23,21 +24,23 @@ class SqlLiteHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx,
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.createTable(SqlliteTablePerson.NAME,
-            false,
+        db?.createTable(
+            SqlliteTablePerson.NAME,
+            true,
+            /*SqlliteTablePerson.ID to INTEGER + PRIMARY_KEY,*/
             SqlliteTablePerson.ID to INTEGER + PRIMARY_KEY,
-            SqlliteTablePerson.ID_SVR to INTEGER,
             SqlliteTablePerson.NAME_PERSON to TEXT,
             SqlliteTablePerson.FIRST_NAME to TEXT,
-            SqlliteTablePerson.AGE to TEXT)
+            SqlliteTablePerson.AGE to TEXT,
+            SqlliteTablePerson.CHANGE to INTEGER
+        )
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
-        db?.dropTable(SqlliteTablePerson.NAME,true)
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db?.dropTable(SqlliteTablePerson.NAME, true)
         onCreate(db)
     }
 
 }
-
 val Context.database : SqlLiteHelper
-    get() = SqlLiteHelper.getInstance(applicationContext)
+    get() = SqlLiteHelper.getInstance(this)

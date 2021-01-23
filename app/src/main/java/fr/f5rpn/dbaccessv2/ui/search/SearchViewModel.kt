@@ -10,4 +10,13 @@ class SearchViewModel : ViewModel() {
         value = "This is the Search Fragment"
     }
     val text: LiveData<String> = _text
+
+    val txtName = MutableLiveData<String>()
+
+    fun clear() {
+        txtName.value=""
+
+
+    }
+
 }

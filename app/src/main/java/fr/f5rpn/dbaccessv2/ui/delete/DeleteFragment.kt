@@ -20,7 +20,7 @@ class DeleteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_delete, container, false)
+        return inflater.inflate(R.layout.main_screen, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

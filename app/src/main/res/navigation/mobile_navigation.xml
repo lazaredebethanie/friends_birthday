@@ -9,23 +9,23 @@
             android:id="@+id/nav_search"
             android:name="fr.f5rpn.dbaccessv2.ui.search.SearchFragment"
             android:label="@string/menu_search"
-            tools:layout="@layout/fragment_search"/>
+            tools:layout="@layout/main_screen"/>
 
     <fragment
             android:id="@+id/nav_add"
             android:name="fr.f5rpn.dbaccessv2.ui.add.AddFragment"
             android:label="@string/menu_add"
-            tools:layout="@layout/fragment_add"/>
+            tools:layout="@layout/main_screen"/>
 
     <fragment
             android:id="@+id/nav_update"
             android:name="fr.f5rpn.dbaccessv2.ui.update.UpdateFragment"
             android:label="@string/menu_update"
-            tools:layout="@layout/fragment_update"/>
+            tools:layout="@layout/main_screen"/>
 
     <fragment
             android:id="@+id/nav_delete"
             android:name="fr.f5rpn.dbaccessv2.ui.delete.DeleteFragment"
             android:label="@string/menu_delete"
-            tools:layout="@layout/fragment_delete"/>
+            tools:layout="@layout/main_screen"/>
 </navigation>
