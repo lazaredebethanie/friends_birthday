@@ -28,4 +28,12 @@
             android:name="fr.f5rpn.dbaccessv2.ui.delete.DeleteFragment"
             android:label="@string/menu_delete"
             tools:layout="@layout/main_screen"/>
+
+    <fragment
+            android:id="@+id/nav_synchro"
+            android:name="fr.f5rpn.dbaccessv2.ui.synchronization.Synchronization"
+            android:label="@string/menu_synchro"
+            tools:layout="@layout/fragment_synchronization"/>
+
+
 </navigation>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -17,11 +16,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentActivity
-import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.main_screen.*
 import kotlinx.android.synthetic.main.person.*
-import kotlinx.android.synthetic.main.person.view.*
 import org.jetbrains.anko.*
 
 class DBAccessActivity : AppCompatActivity(), AnkoLogger {
@@ -69,17 +65,6 @@ class DBAccessActivity : AppCompatActivity(), AnkoLogger {
         startActivity(scrSettings)
     }
 
-    fun onClickErase (view: View) {
-        txtName.setText("")
-        txtFirstName.setText("")
-        txtAge.setText("")
-        txtIdHidden.setText("")
-    }
-
-    fun onClickEraseAdd (view: View) {
-        onClickErase(view)
-
-    }
 
 
 

@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">DBAccessV2</string>
+    <string name="app_name">"Friends\'Birthday"</string>
     <string name="title_activity_d_b_access">DBAccessActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">DataBase Access V2</string>
-    <string name="nav_header_subtitle">How manage your database </string>
+    <string name="nav_header_title">Friends\'Birthdays menu</string>
+    <string name="nav_header_subtitle">How manage your database</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -12,6 +12,7 @@
     <string name="menu_add">Add</string>
     <string name="menu_update">Update</string>
     <string name="menu_delete">Delete</string>
+    <string name="menu_synchro">Synchronization</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
@@ -19,10 +20,30 @@
 
     <!-- Messages Preferences -->
     <string name="server_choice">Choose the server</string>
-    <string name="age">Age :</string>
+    <string name="birthday">Birth day :</string>
     <string name="first_name">"First Name : "</string>
     <string name="name">Name :</string>
     <string name="id">Who ?</string>
     <string name="search">Search</string>
+    <string name="sync_header">Synchronization</string>
+    <string name="sync_title">Permanent / On demand</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="text_synchro">
+        Hello,\n
+        \n
+        The list of your friends is recorded in your phone or tablet.\n
+        \n
+        You are going to be able to synchronize these local data with a distant database.\n
+        \n
+        Be careful !! That could add extra costs to the invoice of your operator (Wifi advised).\n
+        \n
+        So, if you loose or lost your phone, you will be able to restore the list of your friend.\n
+        \n
+        The transfer of these information is safe (server in https)\n
+        \n
+        Do you want to run the synchronisation ?
+        \n
+        \n
+    </string>
 
 </resources>

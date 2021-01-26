@@ -1,13 +1,7 @@
 package fr.f5rpn.dbaccessv2
 
-import android.database.sqlite.SQLiteDatabase
-import android.provider.SyncStateContract.Helpers.update
-import fr.f5rpn.dbaccessv2.SqlliteTablePerson.NAME
-import org.jetbrains.anko.db.classParser
-import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.db.select
-import org.jetbrains.anko.db.update
-import java.nio.file.Files.delete
+import android.util.EventLogTags
+import org.jetbrains.anko.db.*
 
 class SqlLiteCallDB (private val dbHelper: SqlLiteHelper){
 
@@ -33,7 +27,7 @@ class SqlLiteCallDB (private val dbHelper: SqlLiteHelper){
         insert(SqlliteTablePerson.NAME,
             SqlliteTablePerson.NAME_PERSON to person.name,
             SqlliteTablePerson.FIRST_NAME to person.first_name,
-            SqlliteTablePerson.AGE to person.age,
+            SqlliteTablePerson.AGE to person.birthday,
             SqlliteTablePerson.CHANGE to person.change
         )
     }
@@ -47,17 +41,18 @@ class SqlLiteCallDB (private val dbHelper: SqlLiteHelper){
         update(SqlliteTablePerson.NAME,
             SqlliteTablePerson.NAME_PERSON to person.name,
             SqlliteTablePerson.FIRST_NAME to person.first_name,
-            SqlliteTablePerson.AGE to person.age)
+            SqlliteTablePerson.AGE to person.birthday,
+            SqlliteTablePerson.CHANGE to person.change)
             .whereSimple(SqlliteTablePerson.ID + " = ?",person.idPerson.toString())
             .exec()
     }
 
 
-    /*fun updatePerson(person: Person) =dbHelper.use {
-        update(SqlliteTablePerson.NAME,
-            SqlliteTablePerson.NAME_PERSON  to person.name)
-             .where(SqlliteTablePerson.ID_SVR +"=",1)
-            .exec()
-        )
-    }*/
+    fun selectLastId() =dbHelper.use {
+        select (SqlliteTablePerson.NAME,
+            SqlliteTablePerson.ID)
+            .orderBy(SqlliteTablePerson.ID, SqlOrderDirection.DESC)
+            .limit(1)
+            .parseSingle(IntParser)
+    }
 }

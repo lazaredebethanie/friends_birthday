@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Friends\'Birthday</string>
+    <string name="menu_search">Rechercher</string>
+    <string name="menu_add">Ajouter</string>
+    <string name="menu_update">Modifier</string>
+    <string name="menu_delete">Effacer</string>
+    <string name="menu_synchro">Synchroniser</string>
+    <string name="server_choice">Choisir un serveur</string>
+    <string name="birthday">Date d\'anniversaire</string>
+    <string name="first_name">"Prénom : "</string>
+    <string name="name">Nom :</string>
+    <string name="id">Qui ?</string>
+    <string name="search">Rechercher</string>
+    <string name="sync_header">Synchronisation</string>
+    <string name="sync_title">Perment / A la demande</string>
+</resources>

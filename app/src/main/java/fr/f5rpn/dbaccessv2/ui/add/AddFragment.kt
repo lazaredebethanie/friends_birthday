@@ -8,21 +8,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import fr.f5rpn.dbaccessv2.Person
 import fr.f5rpn.dbaccessv2.R
 import fr.f5rpn.dbaccessv2.SqlLiteCallDB
 import fr.f5rpn.dbaccessv2.SqlLiteHelper
 import kotlinx.android.synthetic.main.main_screen.view.*
-import kotlinx.android.synthetic.main.person.*
 import org.jetbrains.anko.*
 
 class AddFragment : Fragment(), AnkoLogger {
 
-    private lateinit var addViewModel: AddViewModel
     private lateinit var txtNameLoc: EditText
     private lateinit var txtFirstNameLoc: EditText
-    private lateinit var txtAgeLoc: EditText
+    private lateinit var txtBirthdayLoc: EditText
     private lateinit var btnEraseLoc: Button
     private lateinit var btnAddLoc: Button
 
@@ -32,13 +29,11 @@ class AddFragment : Fragment(), AnkoLogger {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        addViewModel =
-            ViewModelProviders.of(this).get(AddViewModel::class.java)
         val root = inflater.inflate(R.layout.main_screen, container, false)
         txtNameLoc = root.findViewById(R.id.txtName)
 
         txtFirstNameLoc = root.findViewById(R.id.txtFirstName)
-        txtAgeLoc = root.findViewById(R.id.txtAge)
+        txtBirthdayLoc = root.findViewById(R.id.txtBirthday)
         btnEraseLoc = root.findViewById(R.id.btnErase)
         btnAddLoc = root.findViewById(R.id.btnCommonAdd)
 
@@ -60,14 +55,14 @@ class AddFragment : Fragment(), AnkoLogger {
     private fun addPerson () { //txtName: EditText, txtFirstName: EditText, txtAge: EditText
         val name=txtNameLoc.text.toString()
         val firstName=txtFirstNameLoc.text.toString()
-        val age=txtAgeLoc.text.toString()
-        if (age.equals("") || (name.equals("") && firstName.equals(""))) {
+        val birthday=txtBirthdayLoc.text.toString()
+        if (birthday.equals("") || (name.equals("") && firstName.equals(""))) {
             Toast.makeText(activity, "Give Name and/or First Name and Age", Toast.LENGTH_LONG).show()
         } else {
             val ctx = requireContext()
-            val SqlLiteCallDB by lazy { SqlLiteCallDB(SqlLiteHelper(ctx)) }
-            var person = Person(0, name, firstName, age, 1)
-            var rc = SqlLiteCallDB.savePerson(person)
+            val sqlLiteCallDB by lazy { SqlLiteCallDB(SqlLiteHelper(ctx)) }
+            var person = Person(0, name, firstName, birthday, 1)
+            var rc = sqlLiteCallDB.savePerson(person)
             info("Return code after insert in database : " + rc.toString())
             if (rc > 0) {
                 //longToast("Friend added !")
@@ -81,7 +76,7 @@ class AddFragment : Fragment(), AnkoLogger {
     private fun erase() {
         txtNameLoc.setText("")
         txtFirstNameLoc.setText("")
-        txtAgeLoc.setText("")
+        txtBirthdayLoc.setText("")
 
     }
 

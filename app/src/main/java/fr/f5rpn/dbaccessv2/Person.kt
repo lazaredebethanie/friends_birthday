@@ -4,6 +4,6 @@ data class Person(
     val idPerson:Int,
     val name:String,
     val first_name: String,
-    val age:String,
+    val birthday:String,
     val change:Int
 )

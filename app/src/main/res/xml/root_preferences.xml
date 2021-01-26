@@ -5,12 +5,23 @@
             app:title="@string/servers_header">
 
         <ListPreference
-                app:key="reply"
+                app:key="server"
                 app:title="@string/server_choice"
                 app:entries="@array/srv_entries"
                 app:entryValues="@array/srv_values"
                 app:defaultValue="reply"
                 app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            app:title="@string/sync_header">
+
+        <CheckBoxPreference
+                app:key="synchro"
+                app:title="@string/sync_title"
+                app:summaryOn="Permanent"
+                app:summaryOff="On demand"/>
 
     </PreferenceCategory>
 

@@ -20,5 +20,9 @@
                 android:id="@+id/nav_delete"
                 android:icon="@android:drawable/ic_menu_delete"
                 android:title="@string/menu_delete"/>
+        <item
+                android:id="@+id/nav_synchro"
+                android:icon="@android:drawable/stat_notify_sync_noanim"
+                android:title="@string/menu_synchro"/>
     </group>
 </menu>
